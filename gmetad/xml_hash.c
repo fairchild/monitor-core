@@ -42,13 +42,6 @@ struct xml_tag;
 #define MAX_HASH_VALUE 49
 /* maximum key range = 46, duplicates = 0 */
 
-#ifdef __GNUC__
-__inline
-#else
-#ifdef __cplusplus
-inline
-#endif
-#endif
 static unsigned int
 xml_hash (str, len)
      register const char *str;
@@ -86,12 +79,6 @@ xml_hash (str, len)
   return len + asso_values[(unsigned char)str[len - 1]] + asso_values[(unsigned char)str[0]];
 }
 
-#ifdef __GNUC__
-__inline
-#ifdef __GNUC_STDC_INLINE__
-__attribute__ ((__gnu_inline__))
-#endif
-#endif
 struct xml_tag *
 in_xml_list (str, len)
      register const char *str;

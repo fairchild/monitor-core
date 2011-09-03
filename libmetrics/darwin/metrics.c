@@ -8,10 +8,17 @@
  *  gathering adapted from the freebsd file.
  *
  */
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
 
 #include <stdlib.h>
+
 #include "interface.h"
+#if defined(HAVE_LIBKVM) && defined(HAVE_KVM_H)
 #include <kvm.h>
+#endif
+
 #include <sys/sysctl.h>
 
 #include <mach/mach_init.h>

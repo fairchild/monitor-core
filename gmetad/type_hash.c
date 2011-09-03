@@ -46,14 +46,7 @@ struct type_tag;
 #define MAX_HASH_VALUE 21
 /* maximum key range = 18, duplicates = 0 */
 
-#ifdef __GNUC__
-__inline
-#else
-#ifdef __cplusplus
-inline
-#endif
-#endif
-static unsigned int
+unsigned int
 type_hash (str, len)
      register const char *str;
      register unsigned int len;
@@ -124,12 +117,6 @@ static struct type_tag types[] =
     {"double", FLOAT}
   };
 
-#ifdef __GNUC__
-__inline
-#ifdef __GNUC_STDC_INLINE__
-__attribute__ ((__gnu_inline__))
-#endif
-#endif
 struct type_tag *
 in_type_list (str, len)
      register const char *str;
